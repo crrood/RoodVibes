@@ -5,8 +5,12 @@ ul {
 
 ul#nav-list li {
   display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+ul#nav-list li:hover {
+  display: inline-block;
 }
 
 ul#nav-list li a {
@@ -15,6 +19,7 @@ ul#nav-list li a {
   background-color: #71a100;
   text-decoration: none;
   padding: 10px;
+  transition: background-color .6s;
 }
 
 ul#nav-list li a:hover {
