@@ -9,33 +9,31 @@
 <body>
 <div class="wrap">
 <div class="top-bar"></div>
+<div class="top-bar-bottom"></div>
 
-<div class="login-container"><a class="btn btn-primary" href="#" onclick="redirectToLogin();">Login</a></div>
-
-<div class="welcome-container text-center coming-soon-wrap">
+<div class="welcome-container text-center">
 <h1></h1>
 
-<div id="menu container">
-	<ul id="menu list">
+<nav id="menu-container">
+	<ul id="nav-list">
 		<li>
 			<a href="about.html">About</a>
 		</li>
 		<li>
 			<a href="music.html">Music</a>
 		</li>
+		<li>
+			<a href="code.html">Code</a>
+		</li>
+		<li>
+			<a href="contact.html">Contact</a>
+		</li>
 	</ul>
-</div>
+</nav>
 
 <h4>My site is launching soon.</h4>
 </div>
 </div>
 
-<script type='text/javascript'>
-    document.getElementById( 'hostname' ).innerText = window.location.hostname;
-
-    redirectToLogin = function() {
-      window.location.href = "https://" + window.location.hostname + ":2083";
-    }
-    
-  </script></body>
+</body>
 </html>
