@@ -9,6 +9,7 @@ ul#nav-list li {
   margin-right: 10px;
   transition: all .6s;
   text-align: left;
+  width: 120px;
 }
 
 ul#nav-list li a {
