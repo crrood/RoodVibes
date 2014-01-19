@@ -1,0 +1,23 @@
+<h1>TOSS</h1>
+
+<script type="text/javascript" src="app.js"></script>
+
+<button id="startTime">Go</button>
+<button id="stopTime">Stop</button>
+
+<br><br>
+<form>
+	<input type="checkbox" id="toggleGravity" checked>Gravity<br>
+	<input type="checkbox" id="toggleWallBounce" checked>Bounce off walls<br>
+	<input type="checkbox" id="toggleBallBounce" disabled>Bounce off each other<br>
+	<input type="range" min="0" max="1" value=".6" step=".01" id="elasticityParam">Ball elasticity<br>
+</form>
+
+<canvas id="canvas" width="640" height="480" style="border:1px solid #000000">canvas not supported</canvas>
+
+<p>Arrow Keys -- Aim</p>
+<p>Space Bar -- Shoot</p>
+<p>G / S -- Run / Pause Time</p>
+
+<body onload="initialize()" id="body">
+</body>

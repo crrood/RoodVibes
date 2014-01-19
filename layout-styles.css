@@ -1,6 +1,32 @@
 /*
+    CODE PAGE
+*/
+
+a.code-link {
+  text-decoration: none;
+}
+
+div.code-project {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: #DDD;
+}
+
+div.code-project:hover {
+  background-color: #E8E8E8;
+}
+
+
+
+/*
     ABOUT PAGE
 */
+
+img.social-media-icon {
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 img#portrait {
   width: 100%;
