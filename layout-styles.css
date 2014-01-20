@@ -1,4 +1,15 @@
 /*
+    GLOBAL STYLES
+*/
+
+.underline {
+  display: inline-block;
+  border-bottom: 2px #222 solid;
+  margin-bottom: -20px;
+}
+
+
+/*
     CODE PAGE
 */
 
@@ -46,8 +57,6 @@ ul#skill-list {
   border-bottom: 2px #222 solid;
   font-size: 28px;
   display: inline-block;
-  padding-right: 10px;
-  padding-left: 10px;
   margin-bottom: 50px;
 }
 
