@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<title>Roodvibes</title>
+	<link href="layout-styles.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="initNavBlocks();">
+
+<div id="back-matte"></div>
+<span id="close-button">X</span>
+<iframe id="content-iframe" src="about.html"></iframe>
+
+<div class="nav-block" id="about">
+	<a id="about-link">
+		<span class="nav-label">About</span>
+	</a>
+</div>
+<div class="nav-block" id="music">
+	<a id="music-link">
+		<span class="nav-label">Music</span>
+	</a>
+</div>
+<div class="nav-block" id="code">
+	<a id="code-link">
+		<span class="nav-label">Code</span>
+	</a>
+</div>
+<div class="nav-block" id="blog">
+	<a id="blog-link">
+		<span class="nav-label">Blog</span>
+	</a>
+</div>
+
+<script>
+
+function initNavBlocks() {
+	
+	navBlocks = document.getElementsByClassName("nav-block");
+
+	// fade effect
+	for (var i = 0; i < navBlocks.length; i++) {
+		navBlocks.item(i).addEventListener("mouseover", navBlockMouseOver);
+		navBlocks.item(i).addEventListener("mouseout", navBlockMouseOut);
+	}
+
+	document.getElementById("about-link").addEventListener("click", aboutLinkClicked);
+	document.getElementById("music-link").addEventListener("click", musicLinkClicked);
+	document.getElementById("code-link").addEventListener("click", codeLinkClicked);
+	document.getElementById("blog-link").addEventListener("click", blogLinkClicked);
+
+	document.getElementById("back-matte").addEventListener("click", backMatteClicked);
+
+}
+
+function showFrame(e) {
+	var iframe = document.getElementById("content-iframe");
+	var backMatte = document.getElementById("back-matte");
+	var closeButton = document.getElementById("close-button");
+
+	iframe.removeEventListener("load", showFrame);
+
+	backMatte.style.zIndex = 10;
+	backMatte.style.opacity = .4;
+
+	iframe.style.zIndex = 11;
+	iframe.style.opacity = 1;
+
+	closeButton.style.zIndex = 12;
+	closeButton.style.opacity = 1;
+	closeButton.addEventListener("click", backMatteClicked);
+
+	// listen for escape key to close iframe
+	// TODO this doesn't work if you click on the iframe
+	window.addEventListener("keydown", handleKeyDown);
+}
+
+function backMatteClicked(e) {
+	var iframe = document.getElementById("content-iframe");
+	var backMatte = document.getElementById("back-matte");
+	var closeButton = document.getElementById("close-button");
+
+	backMatte.style.zIndex = -1;
+	backMatte.style.opacity = 0;
+
+	iframe.style.zIndex = -1;
+	iframe.style.opacity = 0;
+
+	closeButton.style.zIndex = -1;
+	closeButton.style.opacity = 0;
+}
+
+function handleKeyDown(e) {
+	// 27 = escape
+	if (e.keyCode == 27) {
+		backMatteClicked(null);
+		window.removeEventListener("keydown", handleKeyDown);
+	}
+}
+
+function aboutLinkClicked(e) {
+	document.getElementById("content-iframe").src = "about.html";
+	document.getElementById("content-iframe").addEventListener("load", showFrame);
+}
+
+function musicLinkClicked(e) {
+	document.getElementById("content-iframe").src = "music.html";
+	document.getElementById("content-iframe").addEventListener("load", showFrame);
+}
+
+function codeLinkClicked(e) {
+	document.getElementById("content-iframe").src = "code.html";
+	document.getElementById("content-iframe").addEventListener("load", showFrame);
+}
+
+function blogLinkClicked(e) {
+	document.getElementById("content-iframe").src = "http://thetravelinggiraffe.tumblr.com/";
+	document.getElementById("content-iframe").addEventListener("load", showFrame);
+}
+
+function navBlockMouseOver(e) {
+	var i;
+	for (i = 0; i < this.childNodes.length; i++) {
+		if (this.childNodes.item(i).localName == "a") {
+			break;
+		}
+	}
+
+	this.childNodes.item(i).style.opacity = ".6";
+}
+
+function navBlockMouseOut(e) {
+	var i;
+	for (i = 0; i < this.childNodes.length; i++) {
+		if (this.childNodes.item(i).localName == "a") {
+			break;
+		}
+	}
+
+	this.childNodes.item(i).style.opacity = ".1";
+}
+
+</script>
