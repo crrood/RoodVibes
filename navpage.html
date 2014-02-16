@@ -10,8 +10,8 @@
 <body onload="initNavBlocks();">
 
 <div id="back-matte"></div>
-<span id="close-button">X</span>
-<iframe id="content-iframe" src="about.html"></iframe>
+<img src="icons/closeButton.png" id="close-button"></img>
+<iframe id="content-iframe" src="about_frame.html"></iframe>
 
 <div class="nav-block" id="about">
 	<a id="about-link">
@@ -46,11 +46,13 @@ function initNavBlocks() {
 		navBlocks.item(i).addEventListener("mouseout", navBlockMouseOut);
 	}
 
+	// menu links to call iframe
 	document.getElementById("about-link").addEventListener("click", aboutLinkClicked);
 	document.getElementById("music-link").addEventListener("click", musicLinkClicked);
 	document.getElementById("code-link").addEventListener("click", codeLinkClicked);
 	document.getElementById("blog-link").addEventListener("click", blogLinkClicked);
 
+	// back matte to close iframe
 	document.getElementById("back-matte").addEventListener("click", backMatteClicked);
 
 }
@@ -101,17 +103,17 @@ function handleKeyDown(e) {
 }
 
 function aboutLinkClicked(e) {
-	document.getElementById("content-iframe").src = "about.html";
+	document.getElementById("content-iframe").src = "about_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
 function musicLinkClicked(e) {
-	document.getElementById("content-iframe").src = "music.html";
+	document.getElementById("content-iframe").src = "music_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
 function codeLinkClicked(e) {
-	document.getElementById("content-iframe").src = "code.html";
+	document.getElementById("content-iframe").src = "code_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
