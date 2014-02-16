@@ -9,7 +9,9 @@
 
 <body onload="initNavBlocks();">
 
-<div id="back-matte"></div>
+<div id="back-matte">
+	<img src="icons/loader.gif" id="loader"></img>;
+</div>
 <img src="icons/closeButton.png" id="close-button"></img>
 <iframe id="content-iframe" src="about_frame.html"></iframe>
 
@@ -57,15 +59,14 @@ function initNavBlocks() {
 
 }
 
+// called by "load" event of content frame
 function showFrame(e) {
 	var iframe = document.getElementById("content-iframe");
-	var backMatte = document.getElementById("back-matte");
 	var closeButton = document.getElementById("close-button");
 
-	iframe.removeEventListener("load", showFrame);
+	document.getElementById("loader").style.display = "none";
 
-	backMatte.style.zIndex = 10;
-	backMatte.style.opacity = .4;
+	iframe.removeEventListener("load", showFrame);
 
 	iframe.style.zIndex = 11;
 	iframe.style.opacity = 1;
@@ -79,10 +80,18 @@ function showFrame(e) {
 	window.addEventListener("keydown", handleKeyDown);
 }
 
+function showBackMatte() {
+	var backMatte = document.getElementById("back-matte");
+	backMatte.style.zIndex = 10;
+	backMatte.style.opacity = .4;
+}
+
 function backMatteClicked(e) {
 	var iframe = document.getElementById("content-iframe");
 	var backMatte = document.getElementById("back-matte");
 	var closeButton = document.getElementById("close-button");
+
+	document.getElementById("loader").style.display = "inline";
 
 	backMatte.style.zIndex = -1;
 	backMatte.style.opacity = 0;
@@ -103,21 +112,25 @@ function handleKeyDown(e) {
 }
 
 function aboutLinkClicked(e) {
+	showBackMatte();
 	document.getElementById("content-iframe").src = "about_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
 function musicLinkClicked(e) {
+	showBackMatte();
 	document.getElementById("content-iframe").src = "music_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
 function codeLinkClicked(e) {
+	showBackMatte();
 	document.getElementById("content-iframe").src = "code_frame.html";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }
 
 function blogLinkClicked(e) {
+	showBackMatte();
 	document.getElementById("content-iframe").src = "http://thetravelinggiraffe.tumblr.com/";
 	document.getElementById("content-iframe").addEventListener("load", showFrame);
 }

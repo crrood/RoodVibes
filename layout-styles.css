@@ -102,6 +102,13 @@
   border-width: 5px;
 }
 
+img#loader {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 20%;
+}
+
 
 /*
     CODE PAGE
