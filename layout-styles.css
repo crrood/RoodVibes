@@ -177,6 +177,20 @@ span.skill-points {
   left: 51%;
 }
 
+
+/*
+    MUSIC PAGE
+*/
+div.album {
+  border: 2px #CCC solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+}
+
+
 /*
     MENU ELEMENTS
 */
@@ -267,7 +281,7 @@ body {
 }
 
 .body-frame {
-
+  padding: 5%;
 }
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
