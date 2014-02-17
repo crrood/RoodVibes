@@ -136,8 +136,13 @@ div.code-project:hover {
 */
 
 img.social-media-icon {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  opacity: .8;
+}
+
+img.social-media-icon:hover {
+  opacity: 1;
 }
 
 img#portrait {
